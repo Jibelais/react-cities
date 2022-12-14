@@ -25,14 +25,20 @@ export default function App() {
   const images = imagesArr.map((ele, index) => {
     
     // Bonus: Place a green border around the image to indicate that it is the current image being displayed
-    if(ele.img === bigImage){
+    
+    //you can reduce the code you write with a ternary in your style property - see below
+
       return (
-        <img  className = 'thumb' src = {ele.img} alt = {ele.city} key = {index} onClick={() => handleClick(ele.img) } style ={{border: '4px solid green'}}/>
+        <img
+          className='thumb'
+          src={ele.img}
+          alt={ele.city}
+          key={index}
+          onClick={() => handleClick(ele.img)}
+          style={{
+            border: ele.img === bigImage ?  '4px solid green' : ''
+          }} />
       )
-    }
-      return (
-        <img  className = 'thumb' src = {ele.img} alt = {ele.city} key = {index} onClick={() => handleClick(ele.img) } />
-        )
     
   })
   
